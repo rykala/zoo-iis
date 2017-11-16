@@ -11,6 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Osetrovatel;
+
+
+Route::get('/', 'OsetrovatelsController@index');
+
+Auth::routes();
+
+Route::get('/osetrovatele', 'OsetrovatelsController@index');
+
+Route::get('/osetrovatele/{osetrovatel}', 'OsetrovatelsController@show');
+
+Route::get('/osetrovatele/create', 'OsetrovatelsController@create');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('about', 'HomeController@index')->name('home');
