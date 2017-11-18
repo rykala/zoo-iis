@@ -80,7 +80,9 @@ class OsetrovatelsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $osetrovatel = Osetrovatel::find($id);
+
+        return view('osetrovatele.edit', compact('osetrovatel'));
     }
 
     /**
@@ -92,7 +94,25 @@ class OsetrovatelsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate(request(), [
+            'rodneCislo' => 'required|max:11',
+            'jmeno' => 'required|max:20',
+            'prijmeni' => 'required|max:20',
+            'vzdelani' => 'required|max:20',
+            'titul' => 'required|max:10',
+        ]);
+
+        Osetrovatel::where('id', $id)->update([
+            'rodneCislo' => request('rodneCislo'),
+            'jmeno' => request('jmeno'),
+            'prijmeni' => request('prijmeni'),
+            'vzdelani' => request('vzdelani'),
+            'titul' => request('titul'),
+        ]);
+
+        return redirect()->action(
+            'OsetrovatelsController@show', ['id' => $id]
+        );
     }
 
     /**
@@ -103,6 +123,8 @@ class OsetrovatelsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Osetrovatel::destroy($id);
+
+        return redirect('osetrovatele');
     }
 }

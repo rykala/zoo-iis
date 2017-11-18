@@ -37,6 +37,11 @@
 
   </form>
 
+  <hr>
+
+  <form action="/osetrovatele/">
+      <input class="button btn-primary" type="submit" value="Zpět k ošetřovatelům" />
+  </form>
 
 
 @endsection

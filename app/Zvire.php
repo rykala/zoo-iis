@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Osetrovatel extends Model
+class Zvire extends Model
 {
     /**
      * Indicates if the model should be timestamped.

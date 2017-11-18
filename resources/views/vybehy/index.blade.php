@@ -2,12 +2,12 @@
 
 @section('content')
 
-    @foreach($osetrovatele as $osetrovatel)
+    @foreach($vybehy as $vybeh)
         <li>
-            <a href="/osetrovatele/{{ $osetrovatel->id }}">
-                {{ $osetrovatel->jmeno . ' ' . $osetrovatel->prijmeni }}
+            <a href="/vybehy/{{ $vybeh->id }}">
+                {{ $vybeh->id }}
             </a>
-            {{ Form::open(['method' => 'DELETE', 'route' => ['osetrovatele.destroy', $osetrovatel->id]]) }}
+            {{ Form::open(['method' => 'DELETE', 'route' => ['vybehy.destroy', $vybeh->id]]) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
         </li>
@@ -17,7 +17,7 @@
     {{--TODO @iis tohle tu musi byt kvůli tlačítku - nestaci to dát do layoutu - proč?--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <a href="/osetrovatele/create">
+    <a href="/vybehy/create">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
 

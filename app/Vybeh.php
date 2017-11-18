@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Osetrovatel extends Model
+class Vybeh extends Model
 {
     /**
      * Indicates if the model should be timestamped.
