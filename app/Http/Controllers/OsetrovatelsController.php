@@ -26,9 +26,7 @@ class OsetrovatelsController extends Controller
      */
     public function create()
     {
-        Osetrovatel::create(request(['neco', 'neco'])); // TODO finish
-
-        return redirect('/');
+        return view('osetrovatele.create');
     }
 
     /**
@@ -39,7 +37,25 @@ class OsetrovatelsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate(request(), [
+            'rodneCislo' => 'required|max:11',
+            'jmeno' => 'required|max:20',
+            'prijmeni' => 'required|max:20',
+            'vzdelani' => 'required|max:20',
+            'titul' => 'required|max:10',
+        ]);
+
+        $id = Osetrovatel::create([
+            'rodneCislo' => request('rodneCislo'),
+            'jmeno' => request('jmeno'),
+            'prijmeni' => request('prijmeni'),
+            'vzdelani' => request('vzdelani'),
+            'titul' => request('titul'),
+        ])->id;
+
+        return redirect()->action(
+            'OsetrovatelsController@show', ['id' => $id]
+        );
     }
 
     /**

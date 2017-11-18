@@ -20,9 +20,11 @@ Auth::routes();
 
 Route::get('/osetrovatele', 'OsetrovatelsController@index');
 
-Route::get('/osetrovatele/{osetrovatel}', 'OsetrovatelsController@show');
-
 Route::get('/osetrovatele/create', 'OsetrovatelsController@create');
+
+Route::post('/osetrovatele', 'OsetrovatelsController@store');
+
+Route::get('/osetrovatele/{osetrovatel}', 'OsetrovatelsController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

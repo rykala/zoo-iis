@@ -8,7 +8,7 @@
                 {{ $osetrovatel->jmeno . ' ' . $osetrovatel->prijmeni }}
             </a>
         </li>
-        @endforeach
+    @endforeach
 
     <section class="jumbotron text-center">
         <div class="container">
