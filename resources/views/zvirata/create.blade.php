@@ -31,12 +31,20 @@
       {{--TODO @iss všechny tyhle IDčka se musí naselectovat--}}
       <div class="form-group">
           <label for="idDruhu">Druh</label>
-          <input type="number" class="form-control" id="idDruhu" name="idDruhu" maxlength="10" required>
+          <select class="form-control" name="idDruhu">
+              @foreach($druhy as $druh)
+                  <option value="{{$druh->id}}">{{$druh->nazev}}</option>
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">
           <label for="idVybehu">Výběh</label>
-          <input type="number" class="form-control" id="idVybehu" name="idVybehu" maxlength="10" required>
+          <select class="form-control" name="idVybehu">
+              @foreach($vybehy as $vybeh)
+                  <option value="{{$vybeh->id}}">{{$vybeh->id}}</option>
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">
@@ -51,7 +59,11 @@
 
       <div class="form-group">
           <label for="idOsetrovatele">Ošetřovatel</label>
-          <input type="number" class="form-control" id="idOsetrovatele" name="idOsetrovatele" maxlength="10" required>
+          <select class="form-control" name="idOsetrovatele">
+              @foreach($osetrovatele as $osetrovatel)
+                  <option value="{{$osetrovatel->id}}">{{$osetrovatel->jmeno}} {{$osetrovatel->prijmeni}}</option>
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">

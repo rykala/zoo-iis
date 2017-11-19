@@ -3,10 +3,19 @@
 @section('content')
         <h1>{{ $vybeh->id }}</h1>
         Potřebný čas: {{ $vybeh->potrebnyCas }} <br/>
-        Pomůcky: {{ $vybeh->pomucky }}
-        Maximální kapacita: {{ $vybeh->maxKapacita }}
-        Počet potřebných ošetřovatelů: {{ $vybeh->pocetPotrebnychOsetrovatelu }}
-        Typ vybehu: {{ $vybeh->idTypuVybehu }}
+        Pomůcky: {{ $vybeh->pomucky }} <br/>
+        Maximální kapacita: {{ $vybeh->maxKapacita }} <br/>
+        Počet potřebných ošetřovatelů: {{ $vybeh->pocetPotrebnychOsetrovatelu }} <br/>
+        Typ vybehu: {{ $typVybehu->nazev }} <br/>
+
+        @if(count($zvirata))
+                <hr>
+                Zvířata ve výběhu: <br/>
+                @foreach($zvirata as $zvire)
+                        Zvíře: <a href="/zvirata/{{ $zvire->id }}">{{ $zvire->id }}</a> <br/>
+                @endforeach
+                <hr>
+        @endif
 
         {{-- TODO proč je na konic routy question mark?--}}
         {{ Form::open(['method' => 'GET', 'route' => ['vybehy.edit', $vybeh->id]]) }}

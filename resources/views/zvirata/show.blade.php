@@ -8,11 +8,11 @@
         Datum narození: {{ $zvire->datumNarozeni }} <br/>
         Datum úmrtí: {{ $zvire->datumUmrti }} <br/>
         {{-- TODO @iss výpis--}}
-        Druh: {{ $zvire->idDruhu }} <br/>
-        Výběh: {{ $zvire->idVybehu }} <br/>
+        Druh: {{ $druh->nazev }} <br/>
+        Výběh: <a href="/vybehy/{{ $zvire->idVybehu }}">{{ $zvire->idVybehu }}</a> <br/>
         Čas krmení: {{ $zvire->casKrmeni }} <br/>
         Množství žrádla: {{ $zvire->mnozstviZradla }} <br/>
-        Ošetřovatel: {{ $zvire->idOsetrovatele }}
+        Ošetřovatel: <a href="/osetrovatele/{{ $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a>
 
         {{-- TODO proč je na konic routy question mark?--}}
         {{ Form::open(['method' => 'GET', 'route' => ['zvirata.edit', $zvire->id]]) }}

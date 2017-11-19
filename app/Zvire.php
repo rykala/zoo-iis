@@ -10,4 +10,6 @@ class Zvire extends Model
      * @var bool
      */
     public $timestamps = false; // pokud je true vytvori created_at a updated_at timestamp
+
+    public $table = 'zvire';
 }

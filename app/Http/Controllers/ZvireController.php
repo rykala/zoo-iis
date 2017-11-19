@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DruhZvirete;
+use App\Osetrovatel;
+use App\Vybeh;
 use App\Zvire;
 use Illuminate\Http\Request;
 
-class ZviresController extends Controller
+class ZvireController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +29,11 @@ class ZviresController extends Controller
      */
     public function create()
     {
-        return view('zvirata.create');
+        $druhy = DruhZvirete::all(['id', 'nazev']);
+        $vybehy = Vybeh::all(['id']);
+        $osetrovatele = Osetrovatel::all(['id', 'jmeno', 'prijmeni']);
+
+        return view('zvirata.create', compact('druhy', 'vybehy', 'osetrovatele'));
     }
 
     /**
@@ -64,7 +71,7 @@ class ZviresController extends Controller
         ])->id;
 
         return redirect()->action(
-            'ZviresController@show', ['id' => $id]
+            'ZvireController@show', ['id' => $id]
         );
     }
 
@@ -78,7 +85,10 @@ class ZviresController extends Controller
     {
         $zvire = Zvire::find($id);
 
-        return view('zvirata.show', compact('zvire'));
+        $druh = DruhZvirete::find($zvire->idDruhu);
+        $osetrovatel = Osetrovatel::find($zvire->idOsetrovatele);
+
+        return view('zvirata.show', compact('zvire','druh','vybeh','osetrovatel'));
     }
 
     /**
@@ -91,7 +101,11 @@ class ZviresController extends Controller
     {
         $zvire = Zvire::find($id);
 
-        return view('zvirata.edit', compact('zvire'));
+        $druhy = DruhZvirete::all(['id', 'nazev']);
+        $vybehy = Vybeh::all(['id']);
+        $osetrovatele = Osetrovatel::all(['id', 'jmeno', 'prijmeni']);
+
+        return view('zvirata.edit', compact('zvire', 'druhy', 'vybehy', 'osetrovatele'));
     }
 
     /**
@@ -130,7 +144,7 @@ class ZviresController extends Controller
         ]);
 
         return redirect()->action(
-            'ZviresController@show', ['id' => $id]
+            'ZvireController@show', ['id' => $id]
         );
     }
 

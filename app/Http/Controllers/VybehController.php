@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\TypVybehu;
 use App\Vybeh;
+use App\Zvire;
 use Illuminate\Http\Request;
 
-class VybehsController extends Controller
+class VybehController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -26,7 +28,9 @@ class VybehsController extends Controller
      */
     public function create()
     {
-        return view('vybehy.create');
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
+
+        return view('vybehy.create', compact('typyVybehu'));
     }
 
     /**
@@ -54,7 +58,7 @@ class VybehsController extends Controller
         ])->id;
 
         return redirect()->action(
-            'VybehsController@show', ['id' => $id]
+            'VybehController@show', ['id' => $id]
         );
     }
 
@@ -68,7 +72,14 @@ class VybehsController extends Controller
     {
         $vybeh = Vybeh::find($id);
 
-        return view('vybehy.show', compact('vybeh'));
+        $typVybehu = TypVybehu::find($vybeh->idTypuVybehu);
+        $zvirata = Zvire::where('idVybehu', $id)->get();
+
+//        $zvirata = DB::table('zvire')
+//            ->where('idVybehu', $id)
+//            ->get();
+
+        return view('vybehy.show', compact('vybeh', 'typVybehu', 'zvirata'));
     }
 
     /**
@@ -80,8 +91,9 @@ class VybehsController extends Controller
     public function edit($id)
     {
         $vybeh = Vybeh::find($id);
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
 
-        return view('vybehy.edit', compact('vybeh'));
+        return view('vybehy.edit', compact('vybeh', 'typyVybehu'));
     }
 
     /**
@@ -110,7 +122,7 @@ class VybehsController extends Controller
         ]);
 
         return redirect()->action(
-            'VybehsController@show', ['id' => $id]
+            'VybehController@show', ['id' => $id]
         );
     }
 

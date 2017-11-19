@@ -24,10 +24,13 @@
           <label for="pocetPotrebnychOsetrovatelu">Počet potřebných ošetřovatelů</label>
           <input type="number" class="form-control" id="pocetPotrebnychOsetrovatelu" name="pocetPotrebnychOsetrovatelu" maxlength="20" required>
       </div>
-      {{-- TODO @iis tady musí být select typů výběhu a poté poslání ID tohoto typu--}}
       <div class="form-group">
           <label for="idTypuVybehu">Typ výběhu</label>
-          <input type="number" class="form-control" id="idTypuVybehu" name="idTypuVybehu" maxlength="10" required>
+          <select class="form-control" name="idTypuVybehu">
+              @foreach($typyVybehu as $typVybehu)
+                  <option value="{{$typVybehu->id}}">{{$typVybehu->nazev}}</option>
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">

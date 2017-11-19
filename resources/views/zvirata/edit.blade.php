@@ -30,15 +30,31 @@
           <label for="datumUmrti">Datum úmrtí</label>
           <input type="date" class="form-control" id="datumUmrti" name="datumUmrti" value="{{ $zvire->datumUmrti }}" required>
       </div>
-      {{--TODO @iss všechny tyhle IDčka se musí naselectovat--}}
+
       <div class="form-group">
           <label for="idDruhu">Druh</label>
-          <input type="number" class="form-control" id="idDruhu" name="idDruhu" value="{{ $zvire->idDruhu }}" maxlength="10" required>
+          <select class="form-control" name="idDruhu">
+              @foreach($druhy as $druh)
+                  @if ($druh->id === $zvire->idDruhu)
+                      <option value="{{$druh->id}}" selected>{{$druh->nazev}}</option>
+                  @else
+                      <option value="{{$druh->id}}">{{$druh->nazev}}</option>
+                  @endif
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">
           <label for="idVybehu">Výběh</label>
-          <input type="number" class="form-control" id="idVybehu" name="idVybehu" value="{{ $zvire->idVybehu }}" maxlength="10" required>
+          <select class="form-control" name="idVybehu">
+              @foreach($vybehy as $vybeh)
+                  @if ($vybeh->id === $zvire->idVybehu)
+                      <option value="{{$vybeh->id}}" selected>{{$vybeh->id}}</option>
+                  @else
+                      <option value="{{$vybeh->id}}">{{$vybeh->id}}</option>
+                  @endif
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">
@@ -53,7 +69,15 @@
 
       <div class="form-group">
           <label for="idOsetrovatele">Ošetřovatel</label>
-          <input type="number" class="form-control" id="idOsetrovatele" name="idOsetrovatele" value="{{ $zvire->idOsetrovatele }}" maxlength="10" required>
+          <select class="form-control" name="idOsetrovatele">
+              @foreach($osetrovatele as $osetrovatel)
+                  @if ($osetrovatel->id === $zvire->idOsetrovatele)
+                      <option value="{{$osetrovatel->id}}" selected>{{$osetrovatel->jmeno}} {{$osetrovatel->prijmeni}}</option>
+                  @else
+                      <option value="{{$osetrovatel->id}}">{{$osetrovatel->jmeno}} {{$osetrovatel->prijmeni}}</option>
+                  @endif
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">

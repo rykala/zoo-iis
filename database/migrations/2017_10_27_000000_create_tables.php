@@ -13,7 +13,7 @@ class CreateTables extends Migration
      */
     public function up()
     {
-        Schema::create('Osetrovatels', function (Blueprint $table) {
+        Schema::create('Osetrovatel', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('rodneCislo');
             $table->string('jmeno', 20);
@@ -29,7 +29,7 @@ class CreateTables extends Migration
             $table->string('nazev', 20);
         });
 
-        Schema::create('Vybehs', function (Blueprint $table) {
+        Schema::create('Vybeh', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('potrebnyCas')->nullable();
             $table->string('pomucky', 30)->nullable();
@@ -56,7 +56,7 @@ class CreateTables extends Migration
             $table->foreign('idVybehu')->references('id')->on('Vybeh')->onDelete('cascade');
         });
 
-        Schema::create('Zvires', function (Blueprint $table) {
+        Schema::create('Zvire', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('zemePuvodu', 20)->nullable();
             $table->string('oblastVyskytu', 20);

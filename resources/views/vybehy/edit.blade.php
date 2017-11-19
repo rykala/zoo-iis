@@ -27,9 +27,21 @@
           <input type="number" class="form-control" id="pocetPotrebnychOsetrovatelu" name="pocetPotrebnychOsetrovatelu" value="{{ $vybeh->pocetPotrebnychOsetrovatelu }}" maxlength="20" required>
       </div>
       {{-- TODO @iis tady musí být select typů výběhu a poté poslání ID tohoto typu--}}
+      {{--<div class="form-group">--}}
+          {{--<label for="idTypuVybehu">Typ výběhu</label>--}}
+          {{--<input type="number" class="form-control" id="idTypuVybehu" name="idTypuVybehu" value="{{ $vybeh->idTypuVybehu }}" maxlength="10" required>--}}
+      {{--</div>--}}
       <div class="form-group">
           <label for="idTypuVybehu">Typ výběhu</label>
-          <input type="number" class="form-control" id="idTypuVybehu" name="idTypuVybehu" value="{{ $vybeh->idTypuVybehu }}" maxlength="10" required>
+          <select class="form-control" name="idTypuVybehu">
+              @foreach($typyVybehu as $typVybehu)
+                  @if ($typVybehu->id === $vybeh->idTypuVybehu)
+                    <option value="{{$typVybehu->id}}" selected>{{$typVybehu->nazev}}</option>
+                  @else
+                      <option value="{{$typVybehu->id}}">{{$typVybehu->nazev}}</option>
+                  @endif
+              @endforeach
+          </select>
       </div>
 
       <div class="form-group">

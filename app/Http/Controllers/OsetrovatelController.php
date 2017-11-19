@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Osetrovatel;
 use Illuminate\Http\Request;
 
-class OsetrovatelsController extends Controller
+class OsetrovatelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -54,7 +54,7 @@ class OsetrovatelsController extends Controller
         ])->id;
 
         return redirect()->action(
-            'OsetrovatelsController@show', ['id' => $id]
+            'OsetrovatelController@show', ['id' => $id]
         );
     }
 
@@ -111,7 +111,7 @@ class OsetrovatelsController extends Controller
         ]);
 
         return redirect()->action(
-            'OsetrovatelsController@show', ['id' => $id]
+            'OsetrovatelController@show', ['id' => $id]
         );
     }
 

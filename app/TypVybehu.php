@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Osetrovatel extends Model
+class TypVybehu extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -11,5 +11,5 @@ class Osetrovatel extends Model
      */
     public $timestamps = false; // pokud je true vytvori created_at a updated_at timestamp
 
-    public $table = 'osetrovatel';
+    public $table = 'typVybehu';
 }
