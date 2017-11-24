@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class TypVybehuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // např. ['only' => 'index'], or except
+    }
+
     /**
      * Display a listing of the resource.
      *

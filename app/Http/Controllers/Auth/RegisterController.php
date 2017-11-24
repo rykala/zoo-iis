@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Osetrovatel;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -62,10 +63,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $id = Osetrovatel::create([
+            'rodneCislo' => rand(250,900000000),
+            'jmeno' => 'vyplň jméno',
+            'prijmeni' => 'vyplň přijmení',
+            'vzdelani' => 'vyplň vzdělání',
+            'titul' => 'titul',
+        ])->id;
+
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'idOsetrovatele' => $id,
         ]);
+
+        $user->attachRole(3); // TODO @iis role osetrovatele
+
+        return $user;
     }
 }

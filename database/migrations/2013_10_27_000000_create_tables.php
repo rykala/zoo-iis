@@ -46,18 +46,18 @@ class CreateTables extends Migration
         });
 
         Schema::create('Cisteni', function (Blueprint $table) {
-            $table->integer('id')->unsigned(); // TODO nema to byt taky primární klíč?
+            $table->increments('id')->unsigned();
             $table->integer('idOsetrovatele')->unsigned();
             $table->integer('idVybehu')->unsigned();
-            $table->timestamp('casCisteni');
+            $table->string('casCisteni', 20);
 
-            $table->primary(['idOsetrovatele', 'idVybehu']);
             $table->foreign('idOsetrovatele')->references('id')->on('Osetrovatel')->onDelete('cascade');
             $table->foreign('idVybehu')->references('id')->on('Vybeh')->onDelete('cascade');
         });
 
         Schema::create('Zvire', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->string('jmeno', 40)->nullable();
             $table->string('zemePuvodu', 20)->nullable();
             $table->string('oblastVyskytu', 20);
             $table->string('rodici', 30)->nullable();

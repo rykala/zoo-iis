@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 
 class VybehController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // např. ['only' => 'index'], or except
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -75,9 +80,7 @@ class VybehController extends Controller
         $typVybehu = TypVybehu::find($vybeh->idTypuVybehu);
         $zvirata = Zvire::where('idVybehu', $id)->get();
 
-//        $zvirata = DB::table('zvire')
-//            ->where('idVybehu', $id)
-//            ->get();
+
 
         return view('vybehy.show', compact('vybeh', 'typVybehu', 'zvirata'));
     }

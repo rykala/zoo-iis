@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'driver' => env('MAIL_DRIVER', 'smtp'),
+    'driver' => env('MAIL_DRIVER', 'log'), // tady bylo smtp a mail host v .env měl před smtp.
 
     /*
     |--------------------------------------------------------------------------

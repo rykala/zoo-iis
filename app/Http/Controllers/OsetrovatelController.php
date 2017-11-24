@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Osetrovatel;
+use App\User;
 use Illuminate\Http\Request;
 
 class OsetrovatelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // např. ['only' => 'index'], or except
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -67,8 +73,14 @@ class OsetrovatelController extends Controller
     public function show($id)
     {
         $osetrovatel = Osetrovatel::find($id);
+        $user = User::where('idOsetrovatele', $id)->get()[0];
 
-        return view('osetrovatele.show', compact('osetrovatel'));
+        $showMakeHlOButton = false;
+        if ($user->level() < 2) {
+            $showMakeHlOButton = true;
+        }
+
+        return view('osetrovatele.show', compact('osetrovatel', 'showMakeHlOButton'));
 
     }
 

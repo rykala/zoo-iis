@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\DruhZvirete;
+use App\Zvire;
 use Illuminate\Http\Request;
 
 class DruhZvireteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); // např. ['only' => 'index'], or except
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -48,6 +54,21 @@ class DruhZvireteController extends Controller
         return redirect()->action(
             'DruhZvireteController@index'
         );
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        $druh = DruhZvirete::find($id);
+
+        $zvirata = Zvire::where('idDruhu', $id)->get();
+
+        return view('druhyZvirat.show', compact('druh','zvirata'));
     }
 
     /**

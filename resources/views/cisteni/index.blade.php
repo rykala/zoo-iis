@@ -2,14 +2,16 @@
 
 @section('content')
 
-    @foreach($zvirata as $zvire)
+    @foreach($cisteni as $jednoCisteni)
         <li>
-            <a href="/zvirata/{{ $zvire->id }}">
-                {{ $zvire->jmeno }}
+            <a href="/cisteni/{{ $jednoCisteni->id }}">
+                {{ $jednoCisteni->id }} - {{ $jednoCisteni->idVybehu }} výběh v {{ $jednoCisteni->casCisteni }}
             </a>
-            {{ Form::open(['method' => 'DELETE', 'route' => ['zvirata.destroy', $zvire->id]]) }}
+            @level(2)
+            {{ Form::open(['method' => 'DELETE', 'route' => ['cisteni.destroy', $jednoCisteni->id]]) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
+            @endlevel
         </li>
         <br/>
     @endforeach
@@ -18,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     @level(2)
-    <a href="/zvirata/create">
+    <a href="/cisteni/create">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
     @endlevel

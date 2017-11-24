@@ -2,7 +2,7 @@
 
 namespace App;
 
-class Vybeh extends Model
+class SkoleniNaZvire extends Model
 {
     /**
      * Indicates if the model should be timestamped.
@@ -11,9 +11,5 @@ class Vybeh extends Model
      */
     public $timestamps = false; // pokud je true vytvori created_at a updated_at timestamp
 
-    public $table = 'vybeh';
-
-//    public function getNazevTypuVybehu() {
-//        return TypVybehu::find($this->idTypuVybeh)->nazev;
-//    }
+    public $table = 'skoleninazvire';
 }

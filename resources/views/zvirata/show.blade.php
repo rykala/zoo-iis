@@ -1,14 +1,14 @@
 @extends('layout')
 
 @section('content')
-        <h1>{{ $zvire->id }}</h1>
+        <h1>{{ $zvire->jmeno }}</h1>
         Země původu: {{ $zvire->zemePuvodu }} <br/>
         Oblast výskytu: {{ $zvire->oblastVyskytu }} <br/>
         Rodiče: {{ $zvire->rodici }} <br/>
         Datum narození: {{ $zvire->datumNarozeni }} <br/>
         Datum úmrtí: {{ $zvire->datumUmrti }} <br/>
         {{-- TODO @iss výpis--}}
-        Druh: {{ $druh->nazev }} <br/>
+        Druh: <a href="/druhyZvirat/{{ $druh->id }}">{{ $druh->nazev }}</a> <br/>
         Výběh: <a href="/vybehy/{{ $zvire->idVybehu }}">{{ $zvire->idVybehu }}</a> <br/>
         Čas krmení: {{ $zvire->casKrmeni }} <br/>
         Množství žrádla: {{ $zvire->mnozstviZradla }} <br/>

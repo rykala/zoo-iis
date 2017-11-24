@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'idOsetrovatele',
     ];
 
     /**
@@ -26,4 +26,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    // TODO @iss tohle nefunguje pořádně, chce to relationship - je to shit
+    public function getOsetrovatele() {
+        return $this->belongsTo('App\Osetrovatel');
+//        return Osetrovatel::find($this->idOsetrovatele);
+    }
 }

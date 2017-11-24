@@ -12,6 +12,8 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    {{-- pro kalendář --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 
     <!-- Custom styles for this template -->
     <link href="/css/album.css" rel="stylesheet">
@@ -42,7 +44,11 @@
     </div>
     <div class="navbar navbar-dark bg-dark">
         <div class="container d-flex justify-content-between">
-            <a href="#" class="navbar-brand">Album</a>
+            <a href="/home" class="navbar-brand">Album</a>
+            <a href="/osetrovatele/{{ Auth::user()->idOsetrovatele }}" class="navbar-brand">{{ Auth::user()->name }}</a>
+
+            <a href="/logout" class="navbar-brand">Odhlaš mě prosím</a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

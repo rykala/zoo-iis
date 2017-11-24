@@ -25,8 +25,8 @@
 
   <hr>
 
-  <form action="/druhyZvirat">
-      <input class="button btn-primary" type="submit" value="Zpět k druhům zvířat" />
+  <form action="/druhyZvirat/{{$druhZvirete->id}}">
+      <input class="button btn-primary" type="submit" value="Zpět k druhu" />
   </form>
 
 
