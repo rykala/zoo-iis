@@ -12,12 +12,14 @@
         {{ Form::close() }}
         @endif
 
+        @if(Auth::user()->idOsetrovatele !== $osetrovatel->id)
         @level(3)
                 {{-- TODO proč je na konic routy question mark?--}}
                 {{ Form::open(['method' => 'GET', 'route' => ['osetrovatele.edit', $osetrovatel->id]]) }}
                 {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
                 {{ Form::close() }}
         @endlevel
+        @endif
 
         @if(Auth::user()->idOsetrovatele !== $osetrovatel->id)
                 @if($showMakeHlOButton == true)
