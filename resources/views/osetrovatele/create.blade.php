@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/osetrovatele">
+  <form method="POST" action="{{url('/osetrovatele')}}">
       {{ csrf_field() }}
       <div class="form-group">
           <label for="rodneCislo">Rodné číslo</label>
@@ -39,7 +39,7 @@
 
   <hr>
 
-  <form action="/osetrovatele/">
+  <form action="{{url('/osetrovatele')}}">
       <input class="button btn-primary" type="submit" value="Zpět k ošetřovatelům" />
   </form>
 

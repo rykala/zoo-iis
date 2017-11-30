@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/vybehy">
+  <form method="POST" {{url('/vybehy')}} >
       {{ csrf_field() }}
       <div class="form-group">
           <label for="potrebnyCas">Potřebný čas</label>
@@ -43,7 +43,7 @@
 
   <hr>
 
-  <form action="/vybehy/">
+  <form action="{{url('/vybehy')}}">
       <input class="button btn-primary" type="submit" value="Zpět k výběhům" />
   </form>
 

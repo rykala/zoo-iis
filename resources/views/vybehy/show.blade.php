@@ -11,7 +11,7 @@
                 <hr>
                 Zvířata ve výběhu: <br/>
                 @foreach($zvirata as $zvire)
-                        Zvíře: <a href="/zvirata/{{ $zvire->id }}">{{ $zvire->jmeno }}</a> <br/>
+                        Zvíře: <a href="{{url('/zvirata'). '/' . $zvire->id }}">{{ $zvire->jmeno }}</a> <br/>
                 @endforeach
                 <hr>
         @endif
@@ -26,7 +26,7 @@
 
 
 
-        <form action="/vybehy/">
+        <form action="{{url('/vybehy')}}">
                 <input class="button btn-primary" type="submit" value="Zpět k výběhům" />
         </form>
 @endsection

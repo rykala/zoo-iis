@@ -7,7 +7,7 @@
                 <hr>
                 Zvířata tohoto druhu: <br/>
                 @foreach($zvirata as $zvire)
-                        Zvíře: <a href="/zvirata/{{ $zvire->id }}">{{ $zvire->id }}</a> <br/>
+                        Zvíře: <a href="{{url('/zvirata'). '/' . $zvire->id }}">{{ $zvire->id }}</a> <br/>
                 @endforeach
                 <hr>
         @endif
@@ -17,11 +17,10 @@
         {{ Form::open(['method' => 'GET', 'route' => ['druhyZvirat.edit', $druh->id]]) }}
         {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
         {{ Form::close() }}
+        <hr>
         @endlevel
 
-        <hr>
-
-        <form action="/druhyZvirat/">
+        <form action="{{ url('/druhyZvirat') }}">
                 <input class="button btn-primary" type="submit" value="Zpět k druhům zvířat" />
         </form>
 @endsection

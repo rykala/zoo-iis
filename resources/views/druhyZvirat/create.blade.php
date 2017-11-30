@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/druhyZvirat">
+  <form method="POST" action="{{url('/druhyZvirat')}}">
       {{ csrf_field() }}
       <div class="form-group">
           <label for="nazev">Název</label>
@@ -23,7 +23,7 @@
 
   <hr>
 
-  <form action="/druhyZvirat">
+  <form action="{{url('/druhyZvirat')}}">
       <input class="button btn-primary" type="submit" value="Zpět k druhům zvířat" />
   </form>
 

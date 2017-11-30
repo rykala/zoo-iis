@@ -2,8 +2,8 @@
 
 @section('content')
         <h1>{{ $cisteni->id }}</h1>
-        Ošetřovatel: <a href="/osetrovatele/{{ $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a> <br/>
-        Výběh: <a href="/vybehy/{{ $vybeh->id }}">{{ $vybeh->id }}</a> <br/>
+        Ošetřovatel: <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a> <br/>
+        Výběh: <a href="{{url('/vybehy'). '/' . $vybeh->id }}">{{ $vybeh->id }}</a> <br/>
         Čas čištění: {{ $cisteni->casCisteni }} <br/>
 
         @level(2)
@@ -15,7 +15,7 @@
         <hr>
 
 
-        <form action="/cisteni/">
+        <form action="{{url('/cisteni')}}">
                 <input class="button btn-primary" type="submit" value="Zpět k seznamu čištění" />
         </form>
 @endsection

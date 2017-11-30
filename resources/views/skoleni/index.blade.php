@@ -4,7 +4,7 @@
 
     @foreach($skoleni as $jednoSkoleni)
         <li>
-            <a href="/skoleni/{{ $jednoSkoleni->id }}">
+            <a href="{{url('/skoleni'). '/' . $jednoSkoleni->id}}">
                 {{ $jednoSkoleni->id }} - {{ $jednoSkoleni->datumSkoleni }}
             </a>
             @level(2)
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     @level(2)
-    <a href="/skoleni/create">
+    <a href="{{url('/skoleni/create')}}">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
     @endlevel

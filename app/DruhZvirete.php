@@ -11,5 +11,5 @@ class DruhZvirete extends Model
      */
     public $timestamps = false; // pokud je true vytvori created_at a updated_at timestamp
 
-    public $table = 'druhZvirete';
+    public $table = 'druhzvirete';
 }

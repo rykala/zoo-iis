@@ -9,7 +9,7 @@
 
   <hr>
 
-  <form method="POST" action="/osetrovatele/{{$osetrovatel->id}}">
+  <form method="POST" action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
       {{csrf_field()}}
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
@@ -51,7 +51,7 @@
 
       <hr>
 
-      <form method="POST" action="/osetrovatele/{{$osetrovatel->id}}">
+      <form method="POST" action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
           {{csrf_field()}}
           {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
           {{ method_field('PATCH') }}
@@ -93,7 +93,7 @@
     @endif
 
 
-    <form action="/osetrovatele/{{ $osetrovatel->id }}">
+    <form action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
       <input class="button btn-primary" type="submit" value="Zpět k ošetřovateli" />
   </form>
 @endsection

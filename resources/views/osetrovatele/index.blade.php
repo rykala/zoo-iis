@@ -4,7 +4,7 @@
 
     @foreach($osetrovatele as $osetrovatel)
         <li>
-            <a href="/osetrovatele/{{ $osetrovatel->id }}">
+            <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
                 {{ $osetrovatel->jmeno . ' ' . $osetrovatel->prijmeni }}
             </a>
             @level(2)

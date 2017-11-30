@@ -25,14 +25,14 @@
                 @if($showMakeHlOButton == true)
                         @level(3)
                         <hr>
-                        <form action="/setHlavniOsetrovatel/{{$osetrovatel->id}}">
+                        <form action="{{url('/setHlavniOsetrovatel'). '/' . $osetrovatel->id}}">
                                 <input class="button btn-primary" type="submit" value="NASTAV HLAVNÍHO OŠETŘOVATELE" />
                         </form>
                         @endlevel
                 @else
                         @level(3)
                         <hr>
-                        <form action="/unsetHlavniOsetrovatel/{{$osetrovatel->id}}">
+                        <form action="{{url('/unsetHlavniOsetrovatel'). '/' . $osetrovatel->id}}">
                                 <input class="button btn-primary" type="submit" value="ODNASTAV HLAVNÍHO OŠETŘOVATELE" />
                         </form>
                         @endlevel
@@ -41,7 +41,7 @@
 
         <hr>
 
-        <form action="/osetrovatele/">
+        <form action="{{url('/osetrovatele')}}">
                 <input class="button btn-primary" type="submit" value="Zpět k ošetřovatelům" />
         </form>
 @endsection

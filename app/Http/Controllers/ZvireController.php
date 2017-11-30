@@ -52,9 +52,9 @@ class ZvireController extends Controller
         $this->validate(request(), [
             'zemePuvodu' => 'required|max:20',
             'oblastVyskytu' => 'required|max:20',
-            'rodici' => 'required|max:20',
+            'rodici' => 'max:20',
             'datumNarozeni' => 'required',
-            'datumUmrti' => 'required',
+            'datumUmrti' => '',
             'idDruhu' => 'required|max:10',
             'idVybehu' => 'required|max:10',
             'casKrmeni' => 'required|max:11',
@@ -125,9 +125,9 @@ class ZvireController extends Controller
         $this->validate(request(), [
             'zemePuvodu' => 'required|max:20',
             'oblastVyskytu' => 'required|max:20',
-            'rodici' => 'required|max:20',
+            'rodici' => 'max:20',
             'datumNarozeni' => 'required',
-            'datumUmrti' => 'required',
+            'datumUmrti' => '',
             'idDruhu' => 'required|max:10',
             'idVybehu' => 'required|max:10',
             'casKrmeni' => 'required|max:11',

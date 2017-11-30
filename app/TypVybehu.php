@@ -11,5 +11,5 @@ class TypVybehu extends Model
      */
     public $timestamps = false; // pokud je true vytvori created_at a updated_at timestamp
 
-    public $table = 'typVybehu';
+    public $table = 'typvybehu';
 }

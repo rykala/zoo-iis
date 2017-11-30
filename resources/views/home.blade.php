@@ -14,13 +14,13 @@
 
                     <h2>Jsi přihlášen!</h2>
 
-                        <a href="/osetrovatele" class="navbar-brand">Ošetřovatelé</a> </br>
-                        <a href="/vybehy" class="navbar-brand">Výběhy</a> </br>
-                        <a href="/zvirata" class="navbar-brand">Zvířata</a> </br>
-                        <a href="/typyVybehu" class="navbar-brand">Typy výběhů</a> </br>
-                        <a href="/druhyZvirat" class="navbar-brand">Druhy zvířat</a> </br>
-                        <a href="/cisteni" class="navbar-brand">Čištění</a> </br>
-                        <a href="/skoleni" class="navbar-brand">Školení</a> </br>
+                        <a href="{{url('/osetrovatele')}}" class="navbar-brand">Ošetřovatelé</a> </br>
+                        <a href="{{url('/vybehy')}}" class="navbar-brand">Výběhy</a> </br>
+                        <a href="{{url('/zvirata')}}" class="navbar-brand">Zvířata</a> </br>
+                        <a href="{{url('/typyVybehu')}}" class="navbar-brand">Typy výběhů</a> </br>
+                        <a href="{{url('/druhyZvirat')}}" class="navbar-brand">Druhy zvířat</a> </br>
+                        <a href="{{url('/cisteni')}}" class="navbar-brand">Čištění</a> </br>
+                        <a href="{{url('/skoleni')}}" class="navbar-brand">Školení</a> </br>
 
                 </div>
             </div>

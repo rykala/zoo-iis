@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/zvirata/{{$zvire->id}}">
+  <form method="POST" action="{{url('/zvirata'). '/' . $zvire->id}}">
       {{csrf_field()}}
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
@@ -20,7 +20,7 @@
       </div>
       <div class="form-group">
           <label for="rodici">Rodiče</label>
-          <input type="text" class="form-control" id="rodici" name="rodici" value="{{ $zvire->rodici }}" maxlength="30" required>
+          <input type="text" class="form-control" id="rodici" name="rodici" value="{{ $zvire->rodici }}" maxlength="30">
       </div>
       <div class="form-group">
           <label for="datumNarozeni">Datum narození</label>
@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
           <label for="datumUmrti">Datum úmrtí</label>
-          <input type="date" class="form-control" id="datumUmrti" name="datumUmrti" value="{{ $zvire->datumUmrti }}" required>
+          <input type="date" class="form-control" id="datumUmrti" name="datumUmrti" value="{{ $zvire->datumUmrti }}">
       </div>
 
       <div class="form-group">
@@ -90,7 +90,7 @@
 
   <hr>
 
-  <form action="/zvirata/{{ $zvire->id }}">
+  <form action="{{url('/zvirata'). '/' . $zvire->id}}">
       <input class="button btn-primary" type="submit" value="Zpět k zvířatu" />
   </form>
 

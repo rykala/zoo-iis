@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/typyVybehu/{{$typVybehu->id}}">
+  <form method="POST" action="{{url('/typyVybehu'). '/' . $typVybehu->id}}">
       {{csrf_field()}}
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
@@ -25,7 +25,7 @@
 
   <hr>
 
-  <form action="/typyVybehu">
+  <form action="{{url('/typyVybehu')}}">
       <input class="button btn-primary" type="submit" value="Zpět k typům výběhů" />
   </form>
 

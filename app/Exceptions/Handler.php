@@ -43,11 +43,27 @@ class Handler extends ExceptionHandler
      * Render an exception into an HTTP response.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
+     * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $exception)
+    public function render($request, Exception $e)
     {
-        return parent::render($request, $exception);
+        if ($e instanceof \Bican\Roles\Exceptions\RoleDeniedException) {
+            return redirect()->back();
+        }
+
+        if ($e instanceof \Bican\Roles\Exceptions\AccessDeniedException) {
+            return redirect()->back();
+        }
+
+        if ($e instanceof \Bican\Roles\Exceptions\LevelDeniedException) {
+            return redirect()->back();
+        }
+
+        if ($e instanceof \Bican\Roles\Exceptions\PermissionDeniedException) {
+            return redirect()->back();
+        }
+
+        return parent::render($request, $e);
     }
 }

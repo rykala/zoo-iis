@@ -4,7 +4,7 @@
 
     @foreach($vybehy as $vybeh)
         <li>
-            <a href="/vybehy/{{ $vybeh->id }}">
+            <a href="{{url('/vybehy'). '/' . $vybeh->id }}">
                 {{ $vybeh->id }}
             </a>
             @level(3)
@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     @level(3)
-    <a href="/vybehy/create">
+    <a href="{{url('/vybehy/create')}}">
         <span class="glyphicon glyphicon-plus"></span>
     </a>
     @endlevel

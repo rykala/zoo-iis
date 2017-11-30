@@ -6,7 +6,7 @@
 
   <hr>
 
-  <form method="POST" action="/zvirata">
+  <form method="POST" action="{{url('/zvirata')}}">
       {{ csrf_field() }}
       <div class="form-group">
           <label for="zemePuvodu">Země původu</label>
@@ -18,7 +18,7 @@
       </div>
       <div class="form-group">
           <label for="rodici">Rodiče</label>
-          <input type="text" class="form-control" id="rodici" name="rodici" maxlength="30" required>
+          <input type="text" class="form-control" id="rodici" name="rodici" maxlength="30">
       </div>
       <div class="form-group">
           <label for="datumNarozeni">Datum narození</label>
@@ -26,7 +26,7 @@
       </div>
       <div class="form-group">
           <label for="datumUmrti">Datum úmrtí</label>
-          <input type="date" class="form-control" id="datumUmrti" name="datumUmrti" required>
+          <input type="date" class="form-control" id="datumUmrti" name="datumUmrti">
       </div>
       {{--TODO @iss všechny tyhle IDčka se musí naselectovat--}}
       <div class="form-group">
@@ -76,7 +76,7 @@
 
   <hr>
 
-  <form action="/zvirata/">
+  <form action="{{url('/zvirata')}}">
       <input class="button btn-primary" type="submit" value="Zpět k zvířatům" />
   </form>
 
