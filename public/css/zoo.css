@@ -4,6 +4,10 @@
     height: 100%;
 }
 
+.navbar-toggler:hover {
+cursor: pointer;
+}
+
 .login-form {
     margin-top: 25%;
 }
@@ -100,4 +104,4 @@ html, body {
     -webkit-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
     -moz-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
     box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
-}s
+}
