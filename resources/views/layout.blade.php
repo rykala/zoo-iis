@@ -54,7 +54,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/osetrovatele' . '/' . Auth::user()->idOsetrovatele) }}">Profil ({{ Auth::user()->email }})</a>
             </li>
-            <hr>
+
+            <li class="divider"></li>
+
             <li class="nav-item">
                 <a href="{{url('/osetrovatele')}}" class="nav-link">Ošetřovatelé</a>
             </li>
@@ -76,7 +78,9 @@
             <li class="nav-item">
                 <a href="{{url('/skoleni')}}" class="nav-link">Školení</a>
             </li>
-            <hr>
+
+            <li class="divider"></li>
+
             <li class="nav-item">
                 <a href="{{ url('/logout')}}" class="nav-link">Odhlásit</a>            
             </li>
@@ -86,7 +90,7 @@
 </header>
 {{-- header !!!!!!!!!!!!!!!!!!!!! --}}
 
-    <div class="container" >
+    <div class="container">
 
         @yield('content')
 

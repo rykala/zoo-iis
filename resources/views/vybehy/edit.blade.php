@@ -2,9 +2,7 @@
 
 @section('content')
 
-  <h1>Uprav výběh</h1>
-
-  <hr>
+  <h1 class="list-header">Uprav výběh</h1>
 
   <form method="POST" action="{{url('/vybehy'). '/' . $vybeh->id}}">
       {{csrf_field()}}
@@ -40,7 +38,7 @@
       </div>
 
       <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Uložit</button>
       </div>
 
       @include('layouts.errors')
@@ -50,9 +48,6 @@
   <hr>
 
   <form action="{{url('/vybehy'). '/' . $vybeh->id}}">
-      <input class="button btn-primary" type="submit" value="Zpět k výběhu" />
+      <input class="btn btn-primary" type="submit" value="Zpět k výběhu" />
   </form>
-
-
-
 @endsection

@@ -4,6 +4,82 @@
   vertical-align: top;
 }
 
+.btn:hover {
+    cursor: pointer!important;
+}
+
 .navbar .navbar-collapse {
   text-align: center;
 }
+
+.navbar .divider {
+    width: 100%;
+    height: 2px;
+    background: rgba(0,0,0, 0.1);
+    margin: 10px 0;
+}
+
+.list {
+    margin: 30px auto;
+    width: 100%;
+}
+
+.list-header {
+    font-size: 35px;
+    margin-top: 35px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.list-item {
+    height: 70px;
+    list-style-type: none;
+    display: block;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.list-item:hover {
+    background: rgba(0,0,0,0.1)!important;
+}
+
+.list-item:nth-child(even) {
+    background: rgba(0,0,0,0.03);
+}
+
+.list-delete {
+    display: inline-block;
+    float: right;
+}
+
+.list-delete:hover {
+    cursor: pointer;
+}
+
+.list-href {
+    display: inline-block;
+    float: left;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.tiles {
+    width: 100%;
+    margin: 50px auto;
+}
+
+.tile {
+    display: block;
+    text-transform: uppercase;
+    margin: 1% 3%;
+    text-align: center;
+    width: 25%;
+    background-color: white;
+    float: left;
+    border-radius: 5px;
+    padding: 15px 15px;
+    border: 1px solid rgba(0,0,0,0.1);
+    -webkit-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
+    -moz-box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
+    box-shadow: 10px 10px 14px -9px rgba(0,0,0,0.64);
+}s

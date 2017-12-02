@@ -2,9 +2,7 @@
 
 @section('content')
 
-  <h1>Uprav školení</h1>
-
-  <hr>
+  <h1 class="list-header">Uprav školení</h1>
 
   <form method="POST" action="{{url('/skoleni'). '/' . $skoleni->id}}">
       {{ csrf_field() }}
@@ -62,10 +60,8 @@
           <input id="datepicker" type="text" class="form-control" id="datumSkoleni" name="datumSkoleni" value="{{$skoleni->datumSkoleni}}" maxlength="20" required>
       </div>
 
-
-
       <div class="form-group">
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-primary">Uložit</button>
       </div>
 
       @include('layouts.errors')
@@ -75,7 +71,7 @@
   <hr>
 
   <form action="{{url('/skoleni'). '/' . $skoleni->id}}">
-      <input class="button btn-primary" type="submit" value="Zpět ke školení" />
+      <input class="btn btn-primary" type="submit" value="Zpět ke školení" />
   </form>
 
 

@@ -4,9 +4,7 @@
 
   @if(Auth::user()->idOsetrovatele === $osetrovatel->id)
 
-  <h1>Uprav svůj profil</h1>
-
-  <hr>
+  <h1 class="list-header">Uprav svůj profil</h1>
 
   <form method="POST" action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
       {{csrf_field()}}
@@ -35,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Uložit</button>
       </div>
 
       @include('layouts.errors')
@@ -46,9 +44,7 @@
 
     @else
       @level(3)
-      <h1>Uprav svůj profil</h1>
-
-      <hr>
+      <h1 class="list-header">Uprav svůj profil</h1>
 
       <form method="POST" action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
           {{csrf_field()}}
@@ -77,7 +73,7 @@
           </div>
 
           <div class="form-group">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">Uložit</button>
           </div>
 
           @include('layouts.errors')
@@ -93,6 +89,6 @@
 
 
     <form action="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
-      <input class="button btn-primary" type="submit" value="Zpět k ošetřovateli" />
+      <input class="btn btn-primary" type="submit" value="Zpět k ošetřovateli" />
   </form>
 @endsection

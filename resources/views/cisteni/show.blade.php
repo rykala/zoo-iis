@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-        <h1>{{ $cisteni->id }}</h1>
+        <h1 class="list-header">{{ $cisteni->id }}</h1>
         Ošetřovatel: <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a> <br/>
         @foreach($typyVybehu as $typ)
                 @if($vybeh->idTypuVybehu === $typ->id)
@@ -13,13 +13,13 @@
         @level(2)
         {{-- TODO proč je na konic routy question mark?--}}
         {{ Form::open(['method' => 'GET', 'route' => ['cisteni.edit', $cisteni->id]]) }}
-        {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Upravit', ['class' => 'btn btn-primary']) }}
         {{ Form::close() }}
         @endlevel
         <hr>
 
 
         <form action="{{url('/cisteni')}}">
-                <input class="button btn-primary" type="submit" value="Zpět k seznamu čištění" />
+                <input class="btn btn-primary" type="submit" value="Zpět k seznamu čištění" />
         </form>
 @endsection

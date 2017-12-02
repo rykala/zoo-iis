@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-        <h1>{{ $skoleni->id }} - {{ $skoleni->datumSkoleni }}</h1>
+        <h1 class="list-header">{{ $skoleni->id }} - {{ $skoleni->datumSkoleni }}</h1>
         Ošetřovatel: <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">
                 {{ $osetrovatel->jmeno . ' ' . $osetrovatel->prijmeni }}</a> <br/>
 
@@ -22,13 +22,13 @@
         @level(2)
         {{--TODO proč je na konic routy question mark?--}}
         {{ Form::open(['method' => 'GET', 'route' => ['skoleni.edit', $skoleni->id]]) }}
-        {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Upravit', ['class' => 'btn btn-primary']) }}
         {{ Form::close() }}
         @endlevel
 
         <hr>
 
         <form action="{{url('/skoleni')}}">
-                <input class="button btn-primary" type="submit" value="Zpět k výpisu školení" />
+                <input class="btn btn-primary" type="submit" value="Zpět k výpisu školení" />
         </form>
 @endsection

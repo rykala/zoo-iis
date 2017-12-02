@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-        <h1>{{ $vybeh->id }} {{ $typVybehu->nazev }}</h1>
+        <h1 class="list-header">{{ $vybeh->id }} {{ $typVybehu->nazev }}</h1>
         Potřebný čas na čištění: {{ $vybeh->potrebnyCas }} minut<br/>
         Pomůcky: {{ $vybeh->pomucky }} <br/>
         Maximální kapacita: {{ $vybeh->maxKapacita }} <br/>
@@ -19,14 +19,12 @@
         @level(3)
         {{-- TODO proč je na konic routy question mark?--}}
         {{ Form::open(['method' => 'GET', 'route' => ['vybehy.edit', $vybeh->id]]) }}
-        {{ Form::submit('Edit', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Upravit', ['class' => 'btn btn-primary']) }}
         {{ Form::close() }}
         <hr>
         @endlevel
 
-
-
         <form action="{{url('/vybehy')}}">
-                <input class="button btn-primary" type="submit" value="Zpět k výběhům" />
+                <input class="btn btn-primary" type="submit" value="Zpět k výběhům" />
         </form>
 @endsection

@@ -1,24 +1,26 @@
 @extends('layout')
 
 @section('content')
+    <h1 class="list-header">Seznam školení</h1>
 
-    @foreach($skoleni as $jednoSkoleni)
-        <li>
-            <a href="{{url('/skoleni'). '/' . $jednoSkoleni->id}}">
-                {{ $jednoSkoleni->id }} - {{ $jednoSkoleni->datumSkoleni }}
-            </a>
-            @level(2)
-            {{ Form::open(['method' => 'DELETE', 'route' => ['skoleni.destroy', $jednoSkoleni->id], 'onsubmit' => 'return ConfirmDelete()']) }}
-            {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
-            {{ Form::close() }}
-            @endlevel
-        </li>
-        <br/>
-    @endforeach
+    <div class="list">
+        @foreach($skoleni as $jednoSkoleni)
+            <div class="list-item">
+                <a class="list-href" href="{{url('/skoleni'). '/' . $jednoSkoleni->id}}">
+                    {{ $jednoSkoleni->id }} - {{ $jednoSkoleni->datumSkoleni }}
+                </a>
+                @level(2)
+                {{ Form::open(['method' => 'DELETE', 'route' => ['skoleni.destroy', $jednoSkoleni->id], 'onsubmit' => 'return ConfirmDelete()']) }}
+                {{ Form::submit('Delete', ['class' => 'btn btn-danger list-delete']) }}
+                {{ Form::close() }}
+                @endlevel
+            </div>
+        @endforeach
+    </div>
 
     @level(2)
-    <a href="{{url('/skoleni/create')}}">
-        <span class="glyphicon glyphicon-plus"></span>
+    <a href="{{url('/skoleni/create')}}" class="btn btn-primary">
+        + Přidat školení
     </a>
     @endlevel
 
