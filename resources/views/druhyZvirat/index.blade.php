@@ -16,9 +16,6 @@
         <br/>
     @endforeach
 
-    {{--TODO @iis tohle tu musi byt kvůli tlačítku - nestaci to dát do layoutu - proč?--}}
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     @level(2)
     <a href="{{url('/druhyZvirat/create')}}">
         <span class="glyphicon glyphicon-plus"></span>
