@@ -15,7 +15,7 @@ class CreateTables extends Migration
     {
         Schema::create('Osetrovatel', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('rodneCislo');
+            $table->bigInteger('rodneCislo');
             $table->string('jmeno', 20);
             $table->string('prijmeni', 20);
             $table->string('vzdelani', 20)->nullable();

@@ -119,9 +119,10 @@ class SkoleniController extends Controller
 
         $osetrovatelMaSkoleni = OsetrovatelMaSkoleni::where('idSkoleni', $id)->get()[0];
         $osetrovatel = Osetrovatel::find($osetrovatelMaSkoleni->idOsetrovatele);
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
 
 
-        return view('skoleni.show', compact('skoleni', 'vybeh', 'druhZvirete', 'osetrovatel'));
+        return view('skoleni.show', compact('skoleni', 'vybeh', 'druhZvirete', 'osetrovatel', 'typyVybehu'));
     }
 
     /**

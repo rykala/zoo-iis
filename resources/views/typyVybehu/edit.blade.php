@@ -11,7 +11,7 @@
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
       <div class="form-group">
-          <label for="nazev">Název</label>
+          <label for="nazev"><span style="color: red; display:block; float:right">*</span>Název</label>
           <input type="text" class="form-control" id="nazev" name="nazev" value="{{ $typVybehu->nazev }}" maxlength="20" required>
       </div>
 

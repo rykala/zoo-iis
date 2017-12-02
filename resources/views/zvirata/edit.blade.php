@@ -11,11 +11,15 @@
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
       <div class="form-group">
-          <label for="zemePuvodu">Země původu</label>
+          <label for="jmeno"><span style="color: red; display:block; float:right">*</span>Jméno zvířete</label>
+          <input type="text" class="form-control" id="jmeno" name="jmeno" value="{{ $zvire->jmeno }}" maxlength="40" required>
+      </div>
+      <div class="form-group">
+          <label for="zemePuvodu"><span style="color: red; display:block; float:right">*</span>Země původu</label>
           <input type="text" class="form-control" id="zemePuvodu" name="zemePuvodu" value="{{ $zvire->zemePuvodu }}" maxlength="20" required>
       </div>
       <div class="form-group">
-          <label for="oblastVyskytu">Oblast výskytu</label>
+          <label for="oblastVyskytu"><span style="color: red; display:block; float:right">*</span>Oblast výskytu</label>
           <input type="text" class="form-control" id="oblastVyskytu" name="oblastVyskytu" value="{{ $zvire->oblastVyskytu }}" maxlength="20" required>
       </div>
       <div class="form-group">
@@ -23,7 +27,7 @@
           <input type="text" class="form-control" id="rodici" name="rodici" value="{{ $zvire->rodici }}" maxlength="30">
       </div>
       <div class="form-group">
-          <label for="datumNarozeni">Datum narození</label>
+          <label for="datumNarozeni"><span style="color: red; display:block; float:right">*</span>Datum narození</label>
           <input type="date" class="form-control" id="datumNarozeni" name="datumNarozeni" value="{{ $zvire->datumNarozeni }}" required>
       </div>
       <div class="form-group">
@@ -32,7 +36,7 @@
       </div>
 
       <div class="form-group">
-          <label for="idDruhu">Druh</label>
+          <label for="idDruhu"><span style="color: red; display:block; float:right">*</span>Druh</label>
           <select class="form-control" name="idDruhu">
               @foreach($druhy as $druh)
                   @if ($druh->id === $zvire->idDruhu)
@@ -45,7 +49,7 @@
       </div>
 
       <div class="form-group">
-          <label for="idVybehu">Výběh</label>
+          <label for="idVybehu"><span style="color: red; display:block; float:right">*</span>Výběh</label>
           <select class="form-control" name="idVybehu">
               @foreach($vybehy as $vybeh)
                   @if ($vybeh->id === $zvire->idVybehu)
@@ -58,17 +62,17 @@
       </div>
 
       <div class="form-group">
-          <label for="casKrmeni">Čas krmení</label>
+          <label for="casKrmeni"><span style="color: red; display:block; float:right">*</span>Čas krmení (v minutách)</label>
           <input type="number" class="form-control" id="casKrmeni" name="casKrmeni" value="{{ $zvire->casKrmeni }}" maxlength="11" required>
       </div>
 
       <div class="form-group">
-          <label for="mnozstviZradla">Množství žrádla</label>
+          <label for="mnozstviZradla"><span style="color: red; display:block; float:right">*</span>Množství žrádla (v gramech)</label>
           <input type="number" class="form-control" id="mnozstviZradla" name="mnozstviZradla" value="{{ $zvire->mnozstviZradla }}" maxlength="11" required>
       </div>
 
       <div class="form-group">
-          <label for="idOsetrovatele">Ošetřovatel</label>
+          <label for="idOsetrovatele"><span style="color: red; display:block; float:right">*</span>Ošetřovatel</label>
           <select class="form-control" name="idOsetrovatele">
               @foreach($osetrovatele as $osetrovatel)
                   @if ($osetrovatel->id === $zvire->idOsetrovatele)

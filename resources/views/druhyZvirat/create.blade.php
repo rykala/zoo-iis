@@ -9,7 +9,7 @@
   <form method="POST" action="{{url('/druhyZvirat')}}">
       {{ csrf_field() }}
       <div class="form-group">
-          <label for="nazev">Název</label>
+          <label for="nazev"><span style="color: red; display:block; float:right">*</span>Název</label>
           <input type="text" class="form-control" id="nazev" name="nazev" maxlength="20" required>
       </div>
 

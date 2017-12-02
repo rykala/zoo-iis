@@ -8,7 +8,7 @@
                 {{ $druhZvirete->nazev }}
             </a>
             @level(2)
-            {{ Form::open(['method' => 'DELETE', 'route' => ['druhyZvirat.destroy', $druhZvirete->id]]) }}
+            {{ Form::open(['method' => 'DELETE', 'route' => ['druhyZvirat.destroy', $druhZvirete->id], 'onsubmit' => 'return ConfirmDelete()']) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
             @endlevel

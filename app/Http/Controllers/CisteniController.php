@@ -115,10 +115,9 @@ class CisteniController extends Controller
 
         $vybeh = Vybeh::find($cisteni->idVybehu);
         $osetrovatel = Osetrovatel::find($cisteni->idOsetrovatele);
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
 
-
-
-        return view('cisteni.show', compact('vybeh', 'cisteni', 'osetrovatel'));
+        return view('cisteni.show', compact('vybeh', 'cisteni', 'osetrovatel', 'typyVybehu'));
     }
 
     /**

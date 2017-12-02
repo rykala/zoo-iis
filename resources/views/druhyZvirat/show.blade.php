@@ -7,7 +7,7 @@
                 <hr>
                 Zvířata tohoto druhu: <br/>
                 @foreach($zvirata as $zvire)
-                        Zvíře: <a href="{{url('/zvirata'). '/' . $zvire->id }}">{{ $zvire->id }}</a> <br/>
+                        Zvíře: <a href="{{url('/zvirata'). '/' . $zvire->id }}">{{ $zvire->id }} - {{ $zvire->jmeno }}</a> <br/>
                 @endforeach
                 <hr>
         @endif

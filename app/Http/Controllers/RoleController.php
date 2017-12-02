@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Osetrovatel;
+use App\OsetrovatelMaSkoleni;
+use App\Skoleni;
 use App\User;
 use Bican\Roles\Models\Permission;
 use Bican\Roles\Models\Role;
@@ -57,9 +59,11 @@ class RoleController extends Controller
         $user->attachRole(2); // TODO @iis role hl. ošetřovatele
 
         $osetrovatel = Osetrovatel::find($id);
+        $osetrovatelMaSkoleni = OsetrovatelMaSkoleni::where('idOsetrovatele', $id)->get();
+        $skoleni = Skoleni::all();
 
         $showMakeHlOButton = false;
-        return view('osetrovatele.show', compact('osetrovatel', 'showMakeHlOButton'));
+        return view('osetrovatele.show', compact('osetrovatel', 'showMakeHlOButton', 'osetrovatelMaSkoleni', 'skoleni'));
     }
 
     public function unsetHlavniOsetrovatel($id)
@@ -68,8 +72,10 @@ class RoleController extends Controller
         $user->attachRole(3); // TODO @iis role hl. ošetřovatele
 
         $osetrovatel = Osetrovatel::find($id);
+        $osetrovatelMaSkoleni = OsetrovatelMaSkoleni::where('idOsetrovatele', $id)->get();
+        $skoleni = Skoleni::all();
 
         $showMakeHlOButton = true;
-        return view('osetrovatele.show', compact('osetrovatel', 'showMakeHlOButton'));
+        return view('osetrovatele.show', compact('osetrovatel', 'showMakeHlOButton', 'osetrovatelMaSkoleni', 'skoleni'));
     }
 }

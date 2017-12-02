@@ -9,7 +9,7 @@
     <form method="POST" action="{{ url('/cisteni')}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="idOsetrovatele">Ošetřovatel</label>
+            <label for="idOsetrovatele"><span style="color: red; display:block; float:right">*</span>Ošetřovatel</label>
             <select class="form-control" name="idOsetrovatele">
                 @foreach($osetrovatele as $osetrovatel)
                     <option value="{{$osetrovatel->id}}">{{$osetrovatel->jmeno}} {{$osetrovatel->prijmeni}}</option>
@@ -17,7 +17,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="idVybehu">Výběh</label>
+            <label for="idVybehu"><span style="color: red; display:block; float:right">*</span>Výběh</label>
             <select class="form-control" name="idVybehu">
                 @foreach($vybehy as $vybeh)
                     <option value="{{$vybeh->id}}">{{$vybeh->id}}</option>
@@ -25,7 +25,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="casCisteni">Čas čištění</label>
+            <label for="casCisteni"><span style="color: red; display:block; float:right">*</span>Čas čištění</label>
             <select class="form-control" name="casCisteni">
                 @foreach($casyCisteni as $cas)
                     <option value="{{$cas}}">{{$cas}}</option>

@@ -7,7 +7,7 @@
             <a href="{{url('/zvirata'). '/' . $zvire->id }}">
                 {{ $zvire->jmeno }}
             </a>
-            {{ Form::open(['method' => 'DELETE', 'route' => ['zvirata.destroy', $zvire->id]]) }}
+            {{ Form::open(['method' => 'DELETE', 'route' => ['zvirata.destroy', $zvire->id], 'onsubmit' => 'return ConfirmDelete()']) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
         </li>

@@ -9,9 +9,26 @@
         Datum úmrtí: {{ $zvire->datumUmrti }} <br/>
         {{-- TODO @iss výpis--}}
         Druh: <a href="{{url('/druhyZvirat'). '/' . $druh->id }}">{{ $druh->nazev }}</a> <br/>
-        Výběh: <a href="{{url('/vybehy'). '/' . $zvire->idVybehu }}">{{ $zvire->idVybehu }}</a> <br/>
-        Čas krmení: {{ $zvire->casKrmeni }} <br/>
-        Množství žrádla: {{ $zvire->mnozstviZradla }} <br/>
+
+
+        @foreach($vybehy as $vybeh)
+                @if($vybeh->idTypuVybehu === $zvire->idVybehu)
+                        @foreach($typyVybehu as $typ)
+                                @if($vybeh->idTypuVybehu === $typ->id)
+                                        Výběh: <a href="{{url('/vybehy'). '/' . $zvire->idVybehu }}">{{ $zvire->idVybehu }} - {{ $typ->nazev }}</a> <br/>
+                                @endif
+                        @endforeach
+                @break
+                @endif
+        @endforeach
+
+
+
+
+
+
+        Čas krmení: {{ $zvire->casKrmeni }} minut<br/>
+        Množství žrádla: {{ $zvire->mnozstviZradla }} gramů<br/>
         Ošetřovatel: <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a>
 
         {{-- TODO proč je na konic routy question mark?--}}

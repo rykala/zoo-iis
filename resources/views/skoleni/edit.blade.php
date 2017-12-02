@@ -11,7 +11,7 @@
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
       <div class="form-group">
-          <label for="idOsetrovatele">Ošetřovatel</label>
+          <label for="idOsetrovatele"><span style="color: red; display:block; float:right">*</span>Ošetřovatel</label>
           <select class="form-control" name="idOsetrovatele">
               @foreach($osetrovatele as $jedenOsetrovatel)
                   @if ($osetrovatel->id === $jedenOsetrovatel->id)
@@ -45,7 +45,7 @@
           <select class="form-control" name="idDruhuZvirete">
               <option disabled selected value> -- vyberte druh zvířete -- </option>
               @foreach($druhyZvirat as $druh)
-                  @if(!is_null($druh))
+                  @if(!is_null($druhZvirete))
                       @if ($druhZvirete->id === $druh->id)
                           <option value="{{$druh->id}}" selected>{{$druh->nazev}}</option>
                       @else
@@ -58,7 +58,7 @@
           </select>
       </div>
       <div class="form-group">
-          <label for="datumSkoleni">Datum školení</label>
+          <label for="datumSkoleni"><span style="color: red; display:block; float:right">*</span>Datum školení</label>
           <input id="datepicker" type="text" class="form-control" id="datumSkoleni" name="datumSkoleni" value="{{$skoleni->datumSkoleni}}" maxlength="20" required>
       </div>
 

@@ -8,7 +8,7 @@
                 {{ $jednoSkoleni->id }} - {{ $jednoSkoleni->datumSkoleni }}
             </a>
             @level(2)
-            {{ Form::open(['method' => 'DELETE', 'route' => ['skoleni.destroy', $jednoSkoleni->id]]) }}
+            {{ Form::open(['method' => 'DELETE', 'route' => ['skoleni.destroy', $jednoSkoleni->id], 'onsubmit' => 'return ConfirmDelete()']) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
             @endlevel

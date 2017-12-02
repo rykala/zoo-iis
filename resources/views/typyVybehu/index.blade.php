@@ -8,7 +8,7 @@
                 {{ $typVybehu->nazev }}
             </a>
             @level(3)
-            {{ Form::open(['method' => 'DELETE', 'route' => ['typyVybehu.destroy', $typVybehu->id]]) }}
+            {{ Form::open(['method' => 'DELETE', 'route' => ['typyVybehu.destroy', $typVybehu->id], 'onsubmit' => 'return ConfirmDelete()']) }}
             {{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}
             {{ Form::close() }}
             @endlevel

@@ -11,28 +11,23 @@
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
       <div class="form-group">
-          <label for="potrebnyCas">Potřebný čas</label>
+          <label for="potrebnyCas"><span style="color: red; display:block; float:right">*</span>Potřebný čas na čištění (minuty)</label>
           <input type="number" class="form-control" id="potrebnyCas" name="potrebnyCas" value="{{ $vybeh->potrebnyCas }}" maxlength="11" required>
       </div>
       <div class="form-group">
-          <label for="pomucky">Pomůcky</label>
+          <label for="pomucky"><span style="color: red; display:block; float:right">*</span>Pomůcky</label>
           <input type="text" class="form-control" id="pomucky" name="pomucky" value="{{ $vybeh->pomucky }}" maxlength="30" required>
       </div>
       <div class="form-group">
-          <label for="maxKapacita">Maximální kapacita</label>
+          <label for="maxKapacita"><span style="color: red; display:block; float:right">*</span>Maximální kapacita zvířat</label>
           <input type="number" class="form-control" id="maxKapacita" name="maxKapacita" value="{{ $vybeh->maxKapacita }}" maxlength="11" required>
       </div>
       <div class="form-group">
-          <label for="pocetPotrebnychOsetrovatelu">Počet potřebných ošetřovatelů</label>
+          <label for="pocetPotrebnychOsetrovatelu"><span style="color: red; display:block; float:right">*</span>Počet potřebných ošetřovatelů</label>
           <input type="number" class="form-control" id="pocetPotrebnychOsetrovatelu" name="pocetPotrebnychOsetrovatelu" value="{{ $vybeh->pocetPotrebnychOsetrovatelu }}" maxlength="20" required>
       </div>
-      {{-- TODO @iis tady musí být select typů výběhu a poté poslání ID tohoto typu--}}
-      {{--<div class="form-group">--}}
-          {{--<label for="idTypuVybehu">Typ výběhu</label>--}}
-          {{--<input type="number" class="form-control" id="idTypuVybehu" name="idTypuVybehu" value="{{ $vybeh->idTypuVybehu }}" maxlength="10" required>--}}
-      {{--</div>--}}
       <div class="form-group">
-          <label for="idTypuVybehu">Typ výběhu</label>
+          <label for="idTypuVybehu"><span style="color: red; display:block; float:right">*</span>Typ výběhu</label>
           <select class="form-control" name="idTypuVybehu">
               @foreach($typyVybehu as $typVybehu)
                   @if ($typVybehu->id === $vybeh->idTypuVybehu)

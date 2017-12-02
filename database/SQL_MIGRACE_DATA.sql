@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Ned 26. lis 2017, 20:08
+-- Vytvořeno: Sob 02. pro 2017, 11:50
 -- Verze serveru: 10.1.26-MariaDB
 -- Verze PHP: 7.1.9
 
@@ -40,7 +40,7 @@ CREATE TABLE `cisteni` (
 --
 
 INSERT INTO `cisteni` (`id`, `idOsetrovatele`, `idVybehu`, `casCisteni`) VALUES
-(1, 1, 1, '08:30');
+(1, 2, 1, '08:30');
 
 -- --------------------------------------------------------
 
@@ -119,7 +119,7 @@ INSERT INTO `osetrovalmaskoleni` (`idOsetrovatele`, `idSkoleni`) VALUES
 
 CREATE TABLE `osetrovatel` (
   `id` int(10) UNSIGNED NOT NULL,
-  `rodneCislo` int(11) NOT NULL,
+  `rodneCislo` bigint(20) NOT NULL,
   `jmeno` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `prijmeni` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `vzdelani` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -131,11 +131,11 @@ CREATE TABLE `osetrovatel` (
 --
 
 INSERT INTO `osetrovatel` (`id`, `rodneCislo`, `jmeno`, `prijmeni`, `vzdelani`, `titul`) VALUES
-(1, 2147483647, 'Admin', 'Admin', 'vysokoskolske', 'ING'),
-(2, 955824449, 'Libor', 'Bousek', 'vysokoskolske', 'MGR'),
-(3, 915820653, 'Marian', 'Ostrcil', 'vysokoskolske', 'PHDR'),
-(4, 971124211, 'Martin', 'Silny', 'stredoskolske', 'MGR'),
-(5, 910308087, 'Martin', 'Hubeny', 'stredoskolske', 'MGR');
+(1, 8012093359, 'Admin', 'Admin', 'vysokoskolske', 'ING'),
+(2, 9558244494, 'Libor', 'Bousek', 'vysokoskolske', 'MGR'),
+(3, 9158206539, 'Marian', 'Ostrcil', 'vysokoskolske', 'PHDR'),
+(4, 9711242114, 'Martin', 'Silny', 'stredoskolske', 'nema'),
+(5, 9103080873, 'Martin', 'Hubeny', 'stredoskolske', 'nema');
 
 -- --------------------------------------------------------
 
@@ -214,9 +214,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `name`, `slug`, `description`, `level`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin', 'Vedoucí zoo', 3, '2017-11-24 08:58:37', '2017-11-24 08:58:37'),
-(2, 'HlavniOsetrovatel', 'hlavniosetrovatel', 'Hlavní ošetřovatel', 2, '2017-11-24 08:58:42', '2017-11-24 08:58:42'),
-(3, 'Osetrovatel', 'osetrovatel', 'Ošetřovatel', 1, '2017-11-24 08:58:47', '2017-11-24 08:58:47');
+(1, 'Admin', 'admin', 'Vedoucí zoo', 3, '2017-11-24 07:58:37', '2017-11-24 07:58:37'),
+(2, 'HlavniOsetrovatel', 'hlavniosetrovatel', 'Hlavní ošetřovatel', 2, '2017-11-24 07:58:42', '2017-11-24 07:58:42'),
+(3, 'Osetrovatel', 'osetrovatel', 'Ošetřovatel', 1, '2017-11-24 07:58:47', '2017-11-24 07:58:47');
 
 -- --------------------------------------------------------
 
@@ -237,11 +237,11 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`id`, `role_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '2017-11-24 12:17:14', '2017-11-24 12:17:14'),
-(2, 2, 2, '2017-11-24 12:18:30', '2017-11-24 12:18:30'),
-(3, 2, 3, '2017-11-24 12:18:33', '2017-11-24 12:18:33'),
-(4, 3, 4, '2017-11-24 12:18:36', '2017-11-24 12:18:36'),
-(5, 3, 5, '2017-11-24 12:18:38', '2017-11-24 12:18:38');
+(1, 1, 1, '2017-11-24 11:17:14', '2017-11-24 11:17:14'),
+(2, 2, 2, '2017-11-24 11:18:30', '2017-11-24 11:18:30'),
+(3, 2, 3, '2017-11-24 11:18:33', '2017-11-24 11:18:33'),
+(4, 3, 4, '2017-11-24 11:18:36', '2017-11-24 11:18:36'),
+(5, 3, 5, '2017-11-24 11:18:38', '2017-11-24 11:18:38');
 
 -- --------------------------------------------------------
 
@@ -350,11 +350,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `idOsetrovatele`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin@admin.admin', 'admin@admin.admin', '$2y$10$UlY/JXX5QaJ2KO/NY6GWHe2magu058doRoCGEKwsQVeJWpbpjPTre', 1, '0bDt5zoK1KcQN1ew8KTEJUVCQ8o4HgvVgeINgedopU9HNNaVufMF2L2fx4x7', '2017-11-24 12:08:10', '2017-11-24 12:08:10'),
-(2, 'libor@bousek.cz', 'libor@bousek.cz', '$2y$10$uoA0pE.IuLnxNMPZCgyvLOXp/Un8vR1oNntxtcVFXCnOTbhBZ2PWy', 2, 'X2MpuW3re4OPfwaKHpSqqSpsAAKdz533yDPh45uppLkDcAqiPEJsTG4GWkKF', '2017-11-24 12:13:34', '2017-11-24 12:13:34'),
-(3, 'marian@ostrcil.cz', 'marian@ostrcil.cz', '$2y$10$C/egi/gM4IRdprxEY02dy.r7DGhbGTOu2LzXu71VPrzyRqlMBwrI2', 3, 'SwGPLu0KL9CTTQRFNzc4aux8SRHUAEhZK2lMq6sGiszTz0tdak1iz3BQlW13', '2017-11-24 12:14:14', '2017-11-24 12:14:14'),
-(4, 'martin@silny.cz', 'martin@silny.cz', '$2y$10$D8lBSqi435xQfDwrXbGJd.IOJg8oSBzbd4sHPzNu.r/auu.NY9ZVC', 4, 'xeu8zyAbw6x9CW0xjkog4RFk15tiK1T6iBXGhdUWiHsBtwTE7DWH1URa7BxD', '2017-11-24 12:14:30', '2017-11-24 12:14:30'),
-(5, 'martin@hubeny.cz', 'martin@hubeny.cz', '$2y$10$BnzKLqSzBfJSU61cPk29IudyaxfUL4boJS/apF0UMDXiyi6/b/DuS', 5, NULL, '2017-11-24 12:14:48', '2017-11-24 12:14:48');
+(1, '', 'admin@admin.admin', '$2y$10$UlY/JXX5QaJ2KO/NY6GWHe2magu058doRoCGEKwsQVeJWpbpjPTre', 1, '0bDt5zoK1KcQN1ew8KTEJUVCQ8o4HgvVgeINgedopU9HNNaVufMF2L2fx4x7', '2017-11-24 11:08:10', '2017-11-24 11:08:10'),
+(2, '', 'libor@bousek.cz', '$2y$10$uoA0pE.IuLnxNMPZCgyvLOXp/Un8vR1oNntxtcVFXCnOTbhBZ2PWy', 2, 'X2MpuW3re4OPfwaKHpSqqSpsAAKdz533yDPh45uppLkDcAqiPEJsTG4GWkKF', '2017-11-24 11:13:34', '2017-11-24 11:13:34'),
+(3, '', 'marian@ostrcil.cz', '$2y$10$C/egi/gM4IRdprxEY02dy.r7DGhbGTOu2LzXu71VPrzyRqlMBwrI2', 3, 'SwGPLu0KL9CTTQRFNzc4aux8SRHUAEhZK2lMq6sGiszTz0tdak1iz3BQlW13', '2017-11-24 11:14:14', '2017-11-24 11:14:14'),
+(4, '', 'martin@silny.cz', '$2y$10$D8lBSqi435xQfDwrXbGJd.IOJg8oSBzbd4sHPzNu.r/auu.NY9ZVC', 4, 'xeu8zyAbw6x9CW0xjkog4RFk15tiK1T6iBXGhdUWiHsBtwTE7DWH1URa7BxD', '2017-11-24 11:14:30', '2017-11-24 11:14:30'),
+(5, '', 'martin@hubeny.cz', '$2y$10$BnzKLqSzBfJSU61cPk29IudyaxfUL4boJS/apF0UMDXiyi6/b/DuS', 5, NULL, '2017-11-24 11:14:48', '2017-11-24 11:14:48');
 
 -- --------------------------------------------------------
 
@@ -409,10 +409,10 @@ CREATE TABLE `zvire` (
 
 INSERT INTO `zvire` (`id`, `jmeno`, `zemePuvodu`, `oblastVyskytu`, `rodici`, `datumNarozeni`, `datumUmrti`, `idDruhu`, `idVybehu`, `casKrmeni`, `mnozstviZradla`, `idOsetrovatele`) VALUES
 (1, 'Mr. Lev', 'Afrika', 'suchozemsky', NULL, '2014-08-06', NULL, 2, 1, 660, 3000, 2),
-(2, 'Mrs. Rysová', 'Slovensko', 'suchozemsky', NULL, '2014-04-23', NULL, 3, 2, 760, 2000, 3),
-(3, 'Opice McOrangutan', 'Madagaskar', 'vodny', NULL, '2003-08-16', NULL, 1, 3, 860, 200, 4),
-(4, 'Velký slon', 'Afrika', 'suchozemsky', NULL, '2015-08-06', NULL, 2, 1, 760, 3000, 2),
-(5, 'Malý slon', 'Afrika', 'suchozemsky', NULL, '2013-08-06', NULL, 2, 4, 960, 3000, 2);
+(2, 'The Jelen King', 'Slovensko', 'suchozemsky', NULL, '2014-04-23', NULL, 3, 2, 760, 2000, 3),
+(3, 'Sleepy', 'Madagaskar', 'vodny', NULL, '2003-08-16', NULL, 1, 3, 860, 200, 4),
+(4, 'Mrs. Lvice', 'Afrika', 'suchozemsky', NULL, '2015-08-06', NULL, 2, 1, 760, 3000, 2),
+(5, 'Mr. Lev junior', 'Afrika', 'suchozemsky', NULL, '2013-08-06', NULL, 2, 4, 960, 3000, 2);
 
 --
 -- Klíče pro exportované tabulky

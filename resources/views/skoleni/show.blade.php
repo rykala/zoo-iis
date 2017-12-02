@@ -10,7 +10,11 @@
         @endif
 
         @if(!is_null($vybeh))
-                Výběh: <a href="{{url('/vybehy'). '/' . $vybeh->id }}">{{ $vybeh->id }}</a> <br/>
+                @foreach($typyVybehu as $typ)
+                        @if($vybeh->idTypuVybehu === $typ->id)
+                                Výběh: <a href="{{url('/vybehy'). '/' . $vybeh->id }}">{{ $vybeh->id }} - {{ $typ->nazev }}</a> <br/>
+                        @endif
+                @endforeach
         @endif
 
 

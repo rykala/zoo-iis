@@ -4,6 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Psy\Exception\ErrorException;
 
 class Handler extends ExceptionHandler
 {
@@ -62,6 +63,10 @@ class Handler extends ExceptionHandler
 
         if ($e instanceof \Bican\Roles\Exceptions\PermissionDeniedException) {
             return redirect()->back();
+        }
+
+        if ($e instanceof \ErrorException) {
+            return view('home');
         }
 
         return parent::render($request, $e);

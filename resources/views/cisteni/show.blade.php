@@ -3,7 +3,11 @@
 @section('content')
         <h1>{{ $cisteni->id }}</h1>
         Ošetřovatel: <a href="{{url('/osetrovatele') . '/' . $osetrovatel->id }}">{{ $osetrovatel->jmeno }} {{ $osetrovatel->prijmeni }}</a> <br/>
-        Výběh: <a href="{{url('/vybehy'). '/' . $vybeh->id }}">{{ $vybeh->id }}</a> <br/>
+        @foreach($typyVybehu as $typ)
+                @if($vybeh->idTypuVybehu === $typ->id)
+                        Výběh: <a href="{{url('/vybehy'). '/' . $vybeh->id }}">{{ $vybeh->id }} - {{ $typ->nazev }}</a> <br/>
+                @endif
+        @endforeach
         Čas čištění: {{ $cisteni->casCisteni }} <br/>
 
         @level(2)

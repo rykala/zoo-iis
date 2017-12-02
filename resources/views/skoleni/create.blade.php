@@ -9,7 +9,7 @@
     <form method="POST" action="{{url('/skoleni')}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label for="idOsetrovatele">Ošetřovatel</label>
+            <label for="idOsetrovatele"><span style="color: red; display:block; float:right">*</span>Ošetřovatel</label>
             <select class="form-control" name="idOsetrovatele">
                 @foreach($osetrovatele as $osetrovatel)
                     <option value="{{$osetrovatel->id}}">{{$osetrovatel->jmeno}} {{$osetrovatel->prijmeni}}</option>
@@ -35,7 +35,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="datumSkoleni">Datum školení</label>
+            <label for="datumSkoleni"><span style="color: red; display:block; float:right">*</span>Datum školení</label>
             <input id="datepicker" type="text" class="form-control" id="datumSkoleni" name="datumSkoleni" maxlength="20" required>
         </div>
 

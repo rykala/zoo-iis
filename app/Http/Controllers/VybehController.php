@@ -22,8 +22,9 @@ class VybehController extends Controller
     public function index()
     {
         $vybehy = Vybeh::all();
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
 
-        return view('vybehy.index', compact('vybehy'));
+        return view('vybehy.index', compact('vybehy', 'typyVybehu'));
     }
 
     /**

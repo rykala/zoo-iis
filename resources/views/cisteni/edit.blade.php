@@ -11,7 +11,7 @@
       {{-- browser nebere patch REST Api -> pouzijeme POST a nastavime method_field na PATCH na naroutovani --}}
       {{ method_field('PATCH') }}
       <div class="form-group">
-          <label for="idOsetrovatele">Ošetřovatel</label>
+          <label for="idOsetrovatele"><span style="color: red; display:block; float:right">*</span>Ošetřovatel</label>
           <select class="form-control" name="idOsetrovatele">
               @foreach($osetrovatele as $jedenOsetrovatel)
                   @if ($osetrovatel->id === $jedenOsetrovatel->id)
@@ -24,7 +24,7 @@
 
       </div>
       <div class="form-group">
-          <label for="idVybehu">Výběh</label>
+          <label for="idVybehu"><span style="color: red; display:block; float:right">*</span>Výběh</label>
           <select class="form-control" name="idVybehu">
               @foreach($vybehy as $jedenVybeh)
                   @if ($vybeh->id === $jedenVybeh->id)
@@ -37,7 +37,7 @@
 
       </div>
       <div class="form-group">
-          <label for="casCisteni">Čas čištění</label>
+          <label for="casCisteni"><span style="color: red; display:block; float:right">*</span>Čas čištění</label>
           <select class="form-control" name="casCisteni">
               @foreach($casyCisteni as $cas)
                   <option value="{{$cas}}">{{$cas}}</option>

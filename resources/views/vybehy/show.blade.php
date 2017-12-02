@@ -2,7 +2,7 @@
 
 @section('content')
         <h1>{{ $vybeh->id }} {{ $typVybehu->nazev }}</h1>
-        Potřebný čas: {{ $vybeh->potrebnyCas }} <br/>
+        Potřebný čas na čištění: {{ $vybeh->potrebnyCas }} minut<br/>
         Pomůcky: {{ $vybeh->pomucky }} <br/>
         Maximální kapacita: {{ $vybeh->maxKapacita }} <br/>
         Počet potřebných ošetřovatelů: {{ $vybeh->pocetPotrebnychOsetrovatelu }} <br/>

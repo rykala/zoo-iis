@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DruhZvirete;
 use App\Osetrovatel;
+use App\TypVybehu;
 use App\Vybeh;
 use App\Zvire;
 use Illuminate\Http\Request;
@@ -50,6 +51,7 @@ class ZvireController extends Controller
     public function store(Request $request)
     {
         $this->validate(request(), [
+            'jmeno' => 'required|max:40',
             'zemePuvodu' => 'required|max:20',
             'oblastVyskytu' => 'required|max:20',
             'rodici' => 'max:20',
@@ -63,6 +65,7 @@ class ZvireController extends Controller
         ]);
 
         $id = Zvire::create([
+            'jmeno' => request('jmeno'),
             'zemePuvodu' => request('zemePuvodu'),
             'oblastVyskytu' => request('oblastVyskytu'),
             'rodici' => request('rodici'),
@@ -92,8 +95,10 @@ class ZvireController extends Controller
 
         $druh = DruhZvirete::find($zvire->idDruhu);
         $osetrovatel = Osetrovatel::find($zvire->idOsetrovatele);
+        $vybehy = Vybeh::all(['id', 'idTypuVybehu']);
+        $typyVybehu = TypVybehu::all(['id', 'nazev']);
 
-        return view('zvirata.show', compact('zvire','druh','vybeh','osetrovatel'));
+        return view('zvirata.show', compact('zvire','druh','vybeh','osetrovatel', 'typyVybehu', 'vybehy'));
     }
 
     /**
@@ -123,6 +128,7 @@ class ZvireController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate(request(), [
+            'jmeno' => 'required|max:40',
             'zemePuvodu' => 'required|max:20',
             'oblastVyskytu' => 'required|max:20',
             'rodici' => 'max:20',
@@ -136,6 +142,7 @@ class ZvireController extends Controller
         ]);
 
         Zvire::where('id', $id)->update([
+            'jmeno' => request('jmeno'),
             'zemePuvodu' => request('zemePuvodu'),
             'oblastVyskytu' => request('oblastVyskytu'),
             'rodici' => request('rodici'),

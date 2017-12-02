@@ -25,13 +25,11 @@ Route::get('about', 'HomeController@index')->name('home');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // ************************ OŠETŘOVATELÉ *********************************
-//Route::get('/', 'OsetrovatelController@index');
-
 Route::get('/osetrovatele', 'OsetrovatelController@index');
 
-//Route::get('/osetrovatele/create', ['middleware' => 'level:2', 'as' => 'osetrovatele.create', 'uses' => 'OsetrovatelController@create']);
+Route::get('/osetrovatele/create', ['middleware' => 'level:3', 'as' => 'osetrovatele.create', 'uses' => 'OsetrovatelController@create']);
 
-//Route::post('/osetrovatele', 'OsetrovatelController@store');
+Route::post('/osetrovatele', 'OsetrovatelController@store');
 
 Route::patch('/osetrovatele/{osetrovatel}', ['as' => 'osetrovatele.update', 'uses' => 'OsetrovatelController@update']);
 
