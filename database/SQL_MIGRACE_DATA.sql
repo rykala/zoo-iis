@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Sob 02. pro 2017, 11:50
+-- Vytvořeno: Sob 02. pro 2017, 12:22
 -- Verze serveru: 10.1.26-MariaDB
 -- Verze PHP: 7.1.9
 
@@ -336,7 +336,6 @@ INSERT INTO `typvybehu` (`id`, `nazev`) VALUES
 
 CREATE TABLE `users` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idOsetrovatele` int(10) UNSIGNED NOT NULL,
@@ -349,12 +348,12 @@ CREATE TABLE `users` (
 -- Vypisuji data pro tabulku `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `password`, `idOsetrovatele`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, '', 'admin@admin.admin', '$2y$10$UlY/JXX5QaJ2KO/NY6GWHe2magu058doRoCGEKwsQVeJWpbpjPTre', 1, '0bDt5zoK1KcQN1ew8KTEJUVCQ8o4HgvVgeINgedopU9HNNaVufMF2L2fx4x7', '2017-11-24 11:08:10', '2017-11-24 11:08:10'),
-(2, '', 'libor@bousek.cz', '$2y$10$uoA0pE.IuLnxNMPZCgyvLOXp/Un8vR1oNntxtcVFXCnOTbhBZ2PWy', 2, 'X2MpuW3re4OPfwaKHpSqqSpsAAKdz533yDPh45uppLkDcAqiPEJsTG4GWkKF', '2017-11-24 11:13:34', '2017-11-24 11:13:34'),
-(3, '', 'marian@ostrcil.cz', '$2y$10$C/egi/gM4IRdprxEY02dy.r7DGhbGTOu2LzXu71VPrzyRqlMBwrI2', 3, 'SwGPLu0KL9CTTQRFNzc4aux8SRHUAEhZK2lMq6sGiszTz0tdak1iz3BQlW13', '2017-11-24 11:14:14', '2017-11-24 11:14:14'),
-(4, '', 'martin@silny.cz', '$2y$10$D8lBSqi435xQfDwrXbGJd.IOJg8oSBzbd4sHPzNu.r/auu.NY9ZVC', 4, 'xeu8zyAbw6x9CW0xjkog4RFk15tiK1T6iBXGhdUWiHsBtwTE7DWH1URa7BxD', '2017-11-24 11:14:30', '2017-11-24 11:14:30'),
-(5, '', 'martin@hubeny.cz', '$2y$10$BnzKLqSzBfJSU61cPk29IudyaxfUL4boJS/apF0UMDXiyi6/b/DuS', 5, NULL, '2017-11-24 11:14:48', '2017-11-24 11:14:48');
+INSERT INTO `users` (`id`, `email`, `password`, `idOsetrovatele`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'admin@admin.admin', '$2y$10$UlY/JXX5QaJ2KO/NY6GWHe2magu058doRoCGEKwsQVeJWpbpjPTre', 1, '0bDt5zoK1KcQN1ew8KTEJUVCQ8o4HgvVgeINgedopU9HNNaVufMF2L2fx4x7', '2017-11-24 11:08:10', '2017-11-24 11:08:10'),
+(2, 'libor@bousek.cz', '$2y$10$uoA0pE.IuLnxNMPZCgyvLOXp/Un8vR1oNntxtcVFXCnOTbhBZ2PWy', 2, 'X2MpuW3re4OPfwaKHpSqqSpsAAKdz533yDPh45uppLkDcAqiPEJsTG4GWkKF', '2017-11-24 11:13:34', '2017-11-24 11:13:34'),
+(3, 'marian@ostrcil.cz', '$2y$10$C/egi/gM4IRdprxEY02dy.r7DGhbGTOu2LzXu71VPrzyRqlMBwrI2', 3, 'SwGPLu0KL9CTTQRFNzc4aux8SRHUAEhZK2lMq6sGiszTz0tdak1iz3BQlW13', '2017-11-24 11:14:14', '2017-11-24 11:14:14'),
+(4, 'martin@silny.cz', '$2y$10$D8lBSqi435xQfDwrXbGJd.IOJg8oSBzbd4sHPzNu.r/auu.NY9ZVC', 4, 'xeu8zyAbw6x9CW0xjkog4RFk15tiK1T6iBXGhdUWiHsBtwTE7DWH1URa7BxD', '2017-11-24 11:14:30', '2017-11-24 11:14:30'),
+(5, 'martin@hubeny.cz', '$2y$10$BnzKLqSzBfJSU61cPk29IudyaxfUL4boJS/apF0UMDXiyi6/b/DuS', 5, NULL, '2017-11-24 11:14:48', '2017-11-24 11:14:48');
 
 -- --------------------------------------------------------
 
