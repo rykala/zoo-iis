@@ -4,6 +4,12 @@
     height: 100%;
 }
 
+.navbar-nav.custom>a {
+    float: none;
+    text-align: center;
+    display: inline-block;
+}
+
 .navbar-toggler:hover {
 cursor: pointer;
 }
