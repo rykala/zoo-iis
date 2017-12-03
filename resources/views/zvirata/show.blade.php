@@ -11,8 +11,9 @@
         {{-- TODO @iss výpis--}}
         Druh: <a href="{{url('/druhyZvirat'). '/' . $druh->id }}">{{ $druh->nazev }}</a> <br/>
 
+{{--                Výběh: <a href="{{url('/vybehy'). '/' . $zvire->idVybehu }}">{{ $zvire->idVybehu }}</a> <br/>--}}
         @foreach($vybehy as $vybeh)
-                @if($vybeh->idTypuVybehu === $zvire->idVybehu)
+                @if($vybeh->id === $zvire->idVybehu)
                         @foreach($typyVybehu as $typ)
                                 @if($vybeh->idTypuVybehu === $typ->id)
                                         Výběh: <a href="{{url('/vybehy'). '/' . $zvire->idVybehu }}">{{ $zvire->idVybehu }} - {{ $typ->nazev }}</a> <br/>
