@@ -22,7 +22,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 
     <!-- Custom styles for this template -->
-    <link href="/css/album.css" rel="stylesheet">
+    {{-- <link href="/css/album.css" rel="stylesheet"> --}}
     <link href="/css/zoo.css" rel="stylesheet">
 </head>
 
@@ -95,5 +95,11 @@
         @yield('content')
 
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">IIS projekt - ZOO 2017 |  Autoři: xmikan00, xpolak33, xrykal00</span>
+      </div>
+    </footer>
 </body>
 </html>
