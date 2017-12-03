@@ -4,7 +4,6 @@
         <h1 class="list-header">{{ $druh->id }} {{ $druh->nazev }}</h1>
 
         @if(count($zvirata))
-                <hr>
                 Zvířata tohoto druhu: <br/>
                 @foreach($zvirata as $zvire)
                         Zvíře: <a href="{{url('/zvirata'). '/' . $zvire->id }}">{{ $zvire->id }} - {{ $zvire->jmeno }}</a> <br/>
