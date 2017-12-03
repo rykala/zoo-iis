@@ -23,7 +23,7 @@
 
     <!-- Custom styles for this template -->
     {{-- <link href="/css/album.css" rel="stylesheet"> --}}
-    <link href="../../../../css/zoo.css" rel="stylesheet">
+    <link href="{{ asset('css/zoo.css') }}" rel="stylesheet">
 </head>
 
 <script>
